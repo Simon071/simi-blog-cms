@@ -1,0 +1,43 @@
+{
+  "kind": "collectionType",
+  "collectionName": "blog_contents",
+  "info": {
+    "singularName": "blog-content",
+    "pluralName": "blog-contents",
+    "displayName": "Blog",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "bid": {
+      "type": "integer",
+      "required": true,
+      "unique": true
+    },
+    "title": {
+      "type": "string",
+      "default": "title",
+      "required": true,
+      "maxLength": 30,
+      "minLength": 3
+    },
+    "content": {
+      "type": "richtext",
+      "default": "content",
+      "required": true
+    },
+    "publishDate": {
+      "type": "datetime",
+      "required": true
+    },
+    "tags": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::tag.tag",
+      "mappedBy": "blogs"
+    }
+  }
+}
